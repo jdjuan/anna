@@ -1,0 +1,9 @@
+{
+  "prettier.disableLanguages": [
+    "html"
+  ],
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "html.format.wrapLineLength": 140
+}
