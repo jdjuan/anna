@@ -2,9 +2,21 @@
 
 /* Importing Bootstrap SCSS file. */
 // @import '~bootstrap/scss/bootstrap';
-@import '~bootstrap/scss/bootstrap';
-@import '~src/assets/custom.scss';
+@import "~bootstrap/scss/bootstrap";
+@import "~src/assets/custom.scss";
 
-html, body {
-    height: 100vh;
+html,
+body {
+  height: 100vh;
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 3px;
+}
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
 }

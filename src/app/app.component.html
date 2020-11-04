@@ -1,8 +1,26 @@
 <div class="container-fluid h-100 p-5 bg-primary">
-  <h1 class="text-secondary display-1 font-weight-bold">
-    {{ title }}
-  </h1>
-  <h2 class="text-secondary display-2 font-weight-lighter">
-    {{ description }}
-  </h2>
+  <div class="intro row h-100 align-items-lg-center">
+    <div class="col">
+      <h1 class="name text-secondary display-1 font-weight-bold">
+        {{ title }}&nbsp;
+      </h1>
+      <h2 class="tagline text-secondary display-2 font-weight-lighter">
+        {{ description }}&nbsp;
+      </h2>
+    </div>
+    <div class="scroll" *ngIf="isTypewriterDone" [@enterAnimation]>
+      <div class="font-weight-light">Scroll Down</div>
+      <i class="arrow down"></i>
+    </div>
+  </div>
+  <div class="row h-100 align-items-lg-center">
+    <div class="col">
+      <!-- <h1 class="name text-secondary display-1 font-weight-bold">
+        {{ title }}&nbsp;
+      </h1>
+      <h2 class="tagline text-secondary display-2 font-weight-lighter">
+        {{ description }}&nbsp;
+      </h2> -->
+    </div>
+  </div>
 </div>
