@@ -4,17 +4,18 @@
     text-align: center;
     position: absolute;
     line-height: 18px;
-    bottom: 0.5rem;
+    bottom: 4rem;
     left: 50%;
     transition: display 2s;
     transform: translateX(-50%);
     animation: float 6s ease-in-out infinite;
+    user-select: none;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 576px) {
   .intro .scroll {
-    bottom: 3rem;
+    bottom: 6rem;
   }
   h1.name {
     word-spacing: 5rem;
