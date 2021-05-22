@@ -17,7 +17,7 @@ import { take, takeUntil, tap } from 'rxjs/operators';
   ],
 })
 export class AppComponent implements OnDestroy {
-  readonly SPEED = 100;
+  readonly SPEED = 80;
   readonly DELAY_DESCRIPTION = 1000;
   title = '';
   fullTitle = 'Anna Mikulics'.split('');

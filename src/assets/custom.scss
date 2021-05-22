@@ -1,17 +1,31 @@
 $theme-colors: (
   "primary": #ffdcb4,
   "light": #fff,
-  "secondary": #183150
+  "secondary": #183150,
 );
+
+$link-color: #183150;
+$link-decoration: none;
+$link-hover-color: $link-color;
 
 $spacers: (
   0: 0,
-  1: ($spacer * .25),
-  2: ($spacer * .5),
+  1: (
+    $spacer * 0.25,
+  ),
+  2: (
+    $spacer * 0.5,
+  ),
   3: $spacer,
-  4: ($spacer * 1.5),
-  4s: ($spacer * 2),
-  5: ($spacer * 3),
+  4: (
+    $spacer * 1.5,
+  ),
+  4s: (
+    $spacer * 2,
+  ),
+  5: (
+    $spacer * 3,
+  ),
 );
 
 $enable-responsive-font-sizes: true;
