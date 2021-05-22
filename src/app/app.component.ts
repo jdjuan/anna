@@ -1,7 +1,9 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnDestroy } from '@angular/core';
 import { Subject, timer } from 'rxjs';
-import { take, takeUntil, tap } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
+import { Content } from 'src/app/content.model';
+import { ContentService } from 'src/app/content.service';
 
 @Component({
   selector: 'app-root',
@@ -20,35 +22,31 @@ export class AppComponent implements OnDestroy {
   readonly SPEED = 80;
   readonly DELAY_DESCRIPTION = 1000;
   title = '';
-  fullTitle = 'Anna Mikulics'.split('');
-  description = '';
-  fullDescription = 'Creative and Scientific Writing.'.split('');
+  subtitle = '';
+  content: Content;
   isTypewriterDone = false;
   destroy = new Subject();
 
-  constructor() {
-    this.initTypewriter();
+  constructor(private contentService: ContentService) {
+    this.contentService.getData().then((content) => {
+      this.content = content;
+      this.initTypewriter();
+    });
   }
 
   initTypewriter(): void {
+    const titleChars = this.content.title.split('');
+    const subtitleChars = this.content.subtitle.split('');
     timer(0, this.SPEED)
-      .pipe(
-        take(this.fullTitle.length),
-        tap(() => (this.title += this.fullTitle.shift())),
-        takeUntil(this.destroy)
-      )
-      .subscribe();
-    const delay = this.fullTitle.length * this.SPEED + this.DELAY_DESCRIPTION;
+      .pipe(take(titleChars.length))
+      .subscribe(() => (this.title += titleChars.shift()));
+    const delay =
+      this.content.title.length * this.SPEED + this.DELAY_DESCRIPTION;
     timer(delay, this.SPEED)
-      .pipe(
-        take(this.fullDescription.length),
-        tap(() => (this.description += this.fullDescription.shift())),
-        takeUntil(this.destroy)
-      )
+      .pipe(take(subtitleChars.length))
       .subscribe({
-        complete: () => {
-          this.isTypewriterDone = true;
-        },
+        next: () => (this.subtitle += subtitleChars.shift()),
+        complete: () => (this.isTypewriterDone = true),
       });
   }
 
